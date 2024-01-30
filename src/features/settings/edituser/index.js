@@ -22,7 +22,9 @@ function EditUser() {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch(`http://localhost:8000/api/user/${id}`);
+      const res = await fetch(
+        `https://backendmedicien1.onrender.com/api/user/${id}`
+      );
       const dataAPI = await res.json();
 
       setData(dataAPI);
@@ -60,7 +62,7 @@ function EditUser() {
         formData.append("phone", data.phone);
         formData.append("name", data.name);
         const response = await fetch(
-          `http://localhost:8000/api/user/update/${id}`,
+          `https://backendmedicien1.onrender.com/api/user/update/${id}`,
           {
             method: "PATCH",
 

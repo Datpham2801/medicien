@@ -41,7 +41,9 @@ function Category() {
   const [user, setUser] = useState([]);
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch(`http://localhost:8000/api/medical`);
+      const res = await fetch(
+        `https://backendmedicien1.onrender.com/api/medical`
+      );
       const data = await res.json();
 
       setUser(data);

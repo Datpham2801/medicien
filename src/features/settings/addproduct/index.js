@@ -28,10 +28,13 @@ function AddProduct() {
     }
 
     try {
-      const response = await fetch("http://localhost:8000/api/medicine/add", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://backendmedicien1.onrender.com/api/medicine/add",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         toast.success("Thêm thuốc thành công", {

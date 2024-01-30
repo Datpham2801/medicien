@@ -29,41 +29,45 @@ function Dashboard() {
   //   };
 
   const [user, setUser] = useState(0);
-  const [doctor , setDoctor] = useState(0)
-  const [nurse , setNurse] = useState(0)
+  const [doctor, setDoctor] = useState(0);
+  const [nurse, setNurse] = useState(0);
   const [money, setMoney] = useState(0);
   useEffect(() => {
     const getData = async () => {
-      let numberUser = 0
-      let numberDoctor = 0
-      let numberNurse = 0
-      let moneyS = 0
-      const res = await fetch(`http://localhost:8000/api/user/`);
-      const res2 = await fetch(`http://localhost:8000/api/medical`);
+      let numberUser = 0;
+      let numberDoctor = 0;
+      let numberNurse = 0;
+      let moneyS = 0;
+      const res = await fetch(
+        `https://backendmedicien1.onrender.com/api/user/`
+      );
+      const res2 = await fetch(
+        `https://backendmedicien1.onrender.com/api/medical`
+      );
       const data = await res.json();
       const data2 = await res2.json();
       data.map((value) => {
         if (!value.admin && value.role == "user") {
-            numberUser++
+          numberUser++;
         }
       });
       data.map((value) => {
         if (!value.admin && value.role == "doctor") {
-            numberDoctor++
+          numberDoctor++;
         }
       });
       data.map((value) => {
         if (!value.admin && value.role == "nurse") {
-            numberNurse++
+          numberNurse++;
         }
       });
-      data2.map((value) =>{
-        moneyS += value.totalBill
-      })
-      setUser(numberUser)
-      setDoctor(numberDoctor)
-      setNurse(numberNurse)
-      setMoney(moneyS)
+      data2.map((value) => {
+        moneyS += value.totalBill;
+      });
+      setUser(numberUser);
+      setDoctor(numberDoctor);
+      setNurse(numberNurse);
+      setMoney(moneyS);
     };
     getData();
   }, []);
@@ -95,8 +99,11 @@ function Dashboard() {
     },
   ];
   function formatAsVND(number) {
-    return number.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
-}
+    return number.toLocaleString("vi-VN", {
+      style: "currency",
+      currency: "VND",
+    });
+  }
   return (
     <>
       {/* <DashboardTopBar updateDashboardPeriod={updateDashboardPeriod} /> */}

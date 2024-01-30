@@ -57,7 +57,9 @@ function DetailMedical() {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch(`http://localhost:8000/api/medical/${id}`);
+      const res = await fetch(
+        `https://backendmedicien1.onrender.com/api/medical/${id}`
+      );
       const dataAPI = await res.json();
 
       setData(dataAPI);
@@ -72,9 +74,15 @@ function DetailMedical() {
   useEffect(() => {
     const getDoctor = async () => {
       if (idDoctor && idNurse && idUser) {
-        const res = await fetch(`http://localhost:8000/api/user/${idDoctor}`);
-        const res2 = await fetch(`http://localhost:8000/api/user/${idNurse}`);
-        const res3 = await fetch(`http://localhost:8000/api/user/${idUser}`);
+        const res = await fetch(
+          `https://backendmedicien1.onrender.com/api/user/${idDoctor}`
+        );
+        const res2 = await fetch(
+          `https://backendmedicien1.onrender.com/api/user/${idNurse}`
+        );
+        const res3 = await fetch(
+          `https://backendmedicien1.onrender.com/api/user/${idUser}`
+        );
         const data = await res.json();
         const data2 = await res2.json();
         const data3 = await res3.json();
@@ -86,14 +94,16 @@ function DetailMedical() {
     getDoctor();
   }, [idDoctor, idNurse, idUser]);
   const fetchData = async () => {
-    const res = await fetch(`http://localhost:8000/api/medical/${id}`);
+    const res = await fetch(
+      `https://backendmedicien1.onrender.com/api/medical/${id}`
+    );
     const updatedData = await res.json();
     setData(updatedData);
   };
 
   const updateMedication = async () => {
     const medicalId = id; // Giả sử 'id' là ID của bản ghi y tế được lấy từ `useParams()`
-    const url = `http://localhost:8000/api/medical/updatequanity/${medicalId}`;
+    const url = `https://backendmedicien1.onrender.com/api/medical/updatequanity/${medicalId}`;
 
     const medicineUpdates = Object.values(medicines).map((med) => ({
       name: med.name,
@@ -313,7 +323,7 @@ function DetailMedical() {
           </button>
           {data.isExamination && (
             <a
-              href={`http://localhost:8000/api/medical/download/${id}`}
+              href={`https://backendmedicien1.onrender.com/api/medical/download/${id}`}
               className="mt-4 btn mx-4 bg-green-500 text-white rounded-lg hover:bg-green-600"
               target="_blank"
               rel="noopener noreferrer"

@@ -61,10 +61,13 @@ function AddUser() {
 
     // Gửi yêu cầu đến server
     try {
-      const response = await fetch(`http://localhost:8000/api/user/adduser`, {
-        method: "POST",
-        body: formData, // Gửi dữ liệu dưới dạng FormData
-      });
+      const response = await fetch(
+        `https://backendmedicien1.onrender.com/api/user/adduser`,
+        {
+          method: "POST",
+          body: formData, // Gửi dữ liệu dưới dạng FormData
+        }
+      );
 
       if (response.status === 200) {
         const responseData = await response.json();

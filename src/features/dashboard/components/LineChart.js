@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -28,17 +28,17 @@ function LineChart() {
   const [monthlyData, setMonthlyData] = useState(Array(12).fill(0));
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/medical')
-      .then(response => response.json())
-      .then(data => {
+    fetch("https://backendmedicien1.onrender.com/api/medical")
+      .then((response) => response.json())
+      .then((data) => {
         const sortedData = Array(12).fill(0);
-        data.forEach(record => {
+        data.forEach((record) => {
           const month = new Date(record.createdAt).getMonth();
           sortedData[month] += record.totalBill;
         });
         setMonthlyData(sortedData);
       })
-      .catch(error => console.error('Error fetching data:', error));
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
   const labels = Array.from({ length: 12 }, (_, i) => `Tháng ${i + 1}`);
@@ -63,7 +63,7 @@ function LineChart() {
       },
       title: {
         display: true,
-        text: 'Doanh thu theo tháng',
+        text: "Doanh thu theo tháng",
       },
     },
   };

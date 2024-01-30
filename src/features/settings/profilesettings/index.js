@@ -34,7 +34,9 @@ function ProfileSettings() {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch(`http://localhost:8000/api/user/${id}`);
+      const res = await fetch(
+        `https://backendmedicien1.onrender.com/api/user/${id}`
+      );
       const data = await res.json();
       setInfo(data);
       setEmail(data.email);
@@ -43,8 +45,10 @@ function ProfileSettings() {
       setDes(data.des);
       setName(data.name);
       setTimework(mapTimeworkData(data.timework));
-      setAvatarData(`http://localhost:8000/${data.avatar}`);
-      setProductImagePreview(`http://localhost:8000/${data.avatar}`);
+      setAvatarData(`https://backendmedicien1.onrender.com/${data.avatar}`);
+      setProductImagePreview(
+        `https://backendmedicien1.onrender.com/${data.avatar}`
+      );
     };
     getData();
   }, [id]);
@@ -66,7 +70,7 @@ function ProfileSettings() {
   const updateTimework = async (timeworkData) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/user/${id}/timework`,
+        `https://backendmedicien1.onrender.com/api/user/${id}/timework`,
         {
           method: "PUT",
           headers: {
@@ -155,7 +159,7 @@ function ProfileSettings() {
       if (avatar) {
         formData.append("avatar", avatar);
       }
-      fetch(`http://localhost:8000/api/user/update/${id}`, {
+      fetch(`https://backendmedicien1.onrender.com/api/user/update/${id}`, {
         method: "PATCH",
         body: formData,
       })

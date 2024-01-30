@@ -26,16 +26,19 @@ function Login() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: loginObj.username, // Đảm bảo tên trường này phù hợp với API
-          password: loginObj.password,
-        }),
-      });
+      const response = await fetch(
+        "https://backendmedicien1.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: loginObj.username, // Đảm bảo tên trường này phù hợp với API
+            password: loginObj.password,
+          }),
+        }
+      );
 
       const data = await response.json();
       console.log(data);

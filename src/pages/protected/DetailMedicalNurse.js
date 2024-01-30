@@ -57,7 +57,9 @@ function DetailMedicalNurse() {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch(`http://localhost:8000/api/medical/${id}`);
+      const res = await fetch(
+        `https://backendmedicien1.onrender.com/api/medical/${id}`
+      );
       const dataAPI = await res.json();
 
       setData(dataAPI);
@@ -72,9 +74,15 @@ function DetailMedicalNurse() {
   useEffect(() => {
     const getDoctor = async () => {
       if (idDoctor && idUser) {
-        const res = await fetch(`http://localhost:8000/api/user/${idDoctor}`);
-        const res2 = await fetch(`http://localhost:8000/api/user/${idNurse}`);
-        const res3 = await fetch(`http://localhost:8000/api/user/${idUser}`);
+        const res = await fetch(
+          `https://backendmedicien1.onrender.com/api/user/${idDoctor}`
+        );
+        const res2 = await fetch(
+          `https://backendmedicien1.onrender.com/api/user/${idNurse}`
+        );
+        const res3 = await fetch(
+          `https://backendmedicien1.onrender.com/api/user/${idUser}`
+        );
         const data = await res.json();
         const data2 = await res2.json();
         const data3 = await res3.json();
@@ -88,7 +96,7 @@ function DetailMedicalNurse() {
   console.log(emailUser);
   const updateMedication = async () => {
     const medicalId = id; // Giả sử 'id' là ID của bản ghi y tế được lấy từ `useParams()`
-    const url = `http://localhost:8000/api/medical/updatequanity/${medicalId}`;
+    const url = `https://backendmedicien1.onrender.com/api/medical/updatequanity/${medicalId}`;
 
     const medicineUpdates = Object.values(medicines).map((med) => ({
       name: med.name,

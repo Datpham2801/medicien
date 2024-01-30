@@ -40,7 +40,9 @@ function Prescribe() {
 
   useEffect(() => {
     const getMedicine = async () => {
-      const res = await fetch(`http://localhost:8000/api/medicine`);
+      const res = await fetch(
+        `https://backendmedicien1.onrender.com/api/medicine`
+      );
       const data = await res.json();
       setMedicines(data.map((med) => ({ name: med.name, price: med.price })));
     };
@@ -49,7 +51,9 @@ function Prescribe() {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch(`http://localhost:8000/api/medical/${id}`);
+      const res = await fetch(
+        `https://backendmedicien1.onrender.com/api/medical/${id}`
+      );
       const dataAPI = await res.json();
       setData(dataAPI);
       setIdDoctor(dataAPI.idDoctor);
@@ -62,8 +66,12 @@ function Prescribe() {
   useEffect(() => {
     const getDoctor = async () => {
       if (idDoctor && idNurse) {
-        const res = await fetch(`http://localhost:8000/api/user/${idDoctor}`);
-        const res2 = await fetch(`http://localhost:8000/api/user/${idNurse}`);
+        const res = await fetch(
+          `https://backendmedicien1.onrender.com/api/user/${idDoctor}`
+        );
+        const res2 = await fetch(
+          `https://backendmedicien1.onrender.com/api/user/${idNurse}`
+        );
         const data = await res.json();
         const data2 = await res2.json();
         setNameDoctor(data.name);
@@ -98,7 +106,7 @@ function Prescribe() {
   const updateMedicalRecord = async (diagnostic, advice, medicines) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/medical/update/${id}`,
+        `https://backendmedicien1.onrender.com/api/medical/update/${id}`,
         {
           method: "PATCH",
           headers: {

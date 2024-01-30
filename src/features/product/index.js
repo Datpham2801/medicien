@@ -30,7 +30,9 @@ function Product() {
   const [user, setUser] = useState([]);
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch(`http://localhost:8000/api/medicine`);
+      const res = await fetch(
+        `https://backendmedicien1.onrender.com/api/medicine`
+      );
       const data = await res.json();
       setUser(data);
       setUserTotal(data);
@@ -49,12 +51,10 @@ function Product() {
     setUser(userNew);
   };
 
-  
-
   const deleteUser = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/medicine/delete/${id}`,
+        `https://backendmedicien1.onrender.com/api/medicine/delete/${id}`,
         {
           method: "DELETE",
         }
@@ -122,7 +122,7 @@ function Product() {
                     <td>{l.price}</td>
                     <td>
                       <img
-                        src={`http://localhost:8000/${l.image}`}
+                        src={`https://backendmedicien1.onrender.com/${l.image}`}
                         width="150px"
                       />
                     </td>

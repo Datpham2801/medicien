@@ -45,7 +45,7 @@ function EditProduct() {
     console.log(productImage);
     try {
       const response = await fetch(
-        `http://localhost:8000/api/medicine/update/${id}`,
+        `https://backendmedicien1.onrender.com/api/medicine/update/${id}`,
         {
           method: "PATCH",
           body: formData, // Sử dụng FormData
@@ -77,14 +77,16 @@ function EditProduct() {
   useEffect(() => {
     const getData = async () => {
       const res = await fetch(
-        `http://localhost:8000/api/medicine/detail/${id}`
+        `https://backendmedicien1.onrender.com/api/medicine/detail/${id}`
       );
       const dataAPI = await res.json();
       setData(dataAPI);
       setProductName(dataAPI.name);
       setProductPrice(dataAPI.price);
       setProductImage(dataAPI.image);
-      setProductImagePreview(`http://localhost:8000/${dataAPI.image}`); // Cập nhật URL xem trước
+      setProductImagePreview(
+        `https://backendmedicien1.onrender.com/${dataAPI.image}`
+      ); // Cập nhật URL xem trước
     };
     getData();
   }, [id]);

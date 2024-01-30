@@ -31,7 +31,7 @@ function Register() {
 
   //     try {
   //       const response = await axios.post(
-  //         "http://localhost:8000/api/doctor/registerDoctor",
+  //         "https://backendmedicien1.onrender.com/api/doctor/registerDoctor",
   //         formData,
   //         {
   //           headers: {
@@ -60,7 +60,7 @@ function Register() {
 
     try {
       const response = await fetch(
-        "http://localhost:8000/api/doctor/registerDoctor",
+        "https://backendmedicien1.onrender.com/api/doctor/registerDoctor",
         {
           method: "POST",
           body: formData,
@@ -105,24 +105,74 @@ function Register() {
                 />
               </div>
               <div className="mb-4">
-                <label className="block  text-sm font-bold mb-2" htmlFor="exampleInputEmail1">Họ và tên</label>
-                <input className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" name="name" placeholder="Họ và tên" type="text" />
+                <label
+                  className="block  text-sm font-bold mb-2"
+                  htmlFor="exampleInputEmail1"
+                >
+                  Họ và tên
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+                  name="name"
+                  placeholder="Họ và tên"
+                  type="text"
+                />
               </div>
               <div className="mb-4">
-                <label className="block  text-sm font-bold mb-2" htmlFor="exampleInputEmail1">Email</label>
-                <input className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" name="email" placeholder="Email" type="text" />
+                <label
+                  className="block  text-sm font-bold mb-2"
+                  htmlFor="exampleInputEmail1"
+                >
+                  Email
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+                  name="email"
+                  placeholder="Email"
+                  type="text"
+                />
               </div>
               <div className="mb-4">
-                <label className="block  text-sm font-bold mb-2" htmlFor="exampleInputEmail1">Số điên thoại</label>
-                <input className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" name="phone" placeholder="Số điện thoại" type="number" />
+                <label
+                  className="block  text-sm font-bold mb-2"
+                  htmlFor="exampleInputEmail1"
+                >
+                  Số điên thoại
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+                  name="phone"
+                  placeholder="Số điện thoại"
+                  type="number"
+                />
               </div>
               <div className="mb-4">
-                <label className="block  text-sm font-bold mb-2" htmlFor="exampleInputEmail1">Mật khẩu</label>
-                <input className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" name="password" placeholder="Mật khẩu" type="text" />
+                <label
+                  className="block  text-sm font-bold mb-2"
+                  htmlFor="exampleInputEmail1"
+                >
+                  Mật khẩu
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+                  name="password"
+                  placeholder="Mật khẩu"
+                  type="text"
+                />
               </div>
               <div className="mb-4">
-                <label className="block  text-sm font-bold mb-2" htmlFor="exampleInputEmail1">Ảnh thuốc</label>
-                <input className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline" name="avatar" placeholder="Nhập file" type="file" />
+                <label
+                  className="block  text-sm font-bold mb-2"
+                  htmlFor="exampleInputEmail1"
+                >
+                  Ảnh thuốc
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+                  name="avatar"
+                  placeholder="Nhập file"
+                  type="file"
+                />
               </div>
 
               <ErrorText styleClass="mt-8">{errorMessage}</ErrorText>
@@ -130,7 +180,8 @@ function Register() {
                 type="submit"
                 className={
                   "btn mt-2 w-full btn-primary" + (loading ? " loading" : "")
-                }>
+                }
+              >
                 Đăng ký
               </button>
               <div className="text-center mt-4">

@@ -22,7 +22,9 @@ function Header() {
 
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch(`http://localhost:8000/api/user/${id}`);
+      const res = await fetch(
+        `https://backendmedicien1.onrender.com/api/user/${id}`
+      );
       const data = await res.json();
       setInfo(data);
     };
@@ -117,7 +119,7 @@ function Header() {
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
                   <img
-                    src={"http://localhost:8000/" + info.avatar}
+                    src={"https://backendmedicien1.onrender.com/" + info.avatar}
                     alt="Avatar"
                     width="100px"
                   />

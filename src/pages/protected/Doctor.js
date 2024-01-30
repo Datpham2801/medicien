@@ -16,7 +16,9 @@ const Doctor = () => {
   const [textSearch, setTextSearch] = useState("");
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch(`http://localhost:8000/api/medical/`);
+      const res = await fetch(
+        `https://backendmedicien1.onrender.com/api/medical/`
+      );
       const data = await res.json();
       setUser(data);
       setUserTotal(data);
@@ -29,7 +31,7 @@ const Doctor = () => {
       // Assuming you have a way to get the nurseId. Replace 'nurseId' with the correct value.
 
       const response = await fetch(
-        `http://localhost:8000/api/nurse/medical/update/${id}`,
+        `https://backendmedicien1.onrender.com/api/nurse/medical/update/${id}`,
         {
           method: "PUT",
           headers: {

@@ -43,7 +43,9 @@ function Leads() {
   const [userTotal, setUserTotal] = useState([]);
   useEffect(() => {
     const getData = async () => {
-      const res = await fetch(`http://localhost:8000/api/user/`);
+      const res = await fetch(
+        `https://backendmedicien1.onrender.com/api/user/`
+      );
       const data = await res.json();
       setUser(data);
       setUserTotal(data);
@@ -90,7 +92,7 @@ function Leads() {
   const deleteUser = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/user/delete/${id}`,
+        `https://backendmedicien1.onrender.com/api/user/delete/${id}`,
         {
           method: "DELETE",
         }
